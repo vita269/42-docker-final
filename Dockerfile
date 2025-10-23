@@ -22,5 +22,4 @@ WORKDIR /app
 # Копируем собранный бинарный файл из этапа сборки
 COPY --from=builder /app/my_app ./
 
-EXPOSE 8080
 CMD ["./my_app"]
