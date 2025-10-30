@@ -39,7 +39,7 @@ jobs:
         uses: docker/metadata-action@v5.5.1
         with:
           images: vita26/docker-final
-          tags: | 
+            tags: |
             type=ref,event=tag
             type=semver,pattern={{version}}
             type=sha
