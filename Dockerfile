@@ -1,26 +1,14 @@
-# Базовый образ с Go
-FROM golang:1.24.3 AS builder 
 
-# Устанавливаем рабочую директорию
-WORKDIR /app
+FROM golang:1.24.3
 
-# Копируем go.mod и go.sum для загрузки зависимостей
+WORKDIR  /app
+
+COPY . .
+
 COPY go.mod go.sum ./
 RUN go mod download
 
-# Копируем весь проект (важно скопировать всю структуру папок)
-COPY . .
-
-# Собираем приложение
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /main main.go
-
-# Создаем финальный образ
-FROM golang:1.24.3-alpine
-
-WORKDIR /app
-
-
-COPY tracker.db /app/tracker.db
 
 
 CMD ["/main"]
