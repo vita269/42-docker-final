@@ -2,8 +2,6 @@ name: Go CI/CD
 
 on:
   push:
-    branches: [main]
-    tags: ['*']
 
 jobs:
   test:
