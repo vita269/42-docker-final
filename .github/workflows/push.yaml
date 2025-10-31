@@ -40,7 +40,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
-              images: vita26/docker-final
+          images: vita26/docker-final
           tags: |
             type=ref,event=tag
             type=semver,pattern={{version}}
